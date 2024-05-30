@@ -586,12 +586,12 @@ def login(session:'mysql.connector.connection_cext.CMySQLConnection', username:s
     else:
         return False
 
-# RUN ############################################    
+# RUN ############################################
 def main():
+    session = connect_db("localhost", "root", "longpassword")
+    cursor = session.cursor()
+    print("\nWellcome to School data base")
     while(True):
-        session = connect_db("localhost", "root", "longpassword")
-        cursor = session.cursor()
-        print("\nWellcome to School data base")
         username = input("User name: ")
         password = input("password: ")
         loggedin = login(session, username, password)
@@ -636,18 +636,19 @@ def main():
             print("login unsuccessful")
             continue
 
-# CREATE AND POPULATE DATABASE
-# session = connect_db("localhost", "root", "longpassword")
-# create_databases(session, DB_NAME)
-# create_table_users(session)
-# create_table_students(session)
-# create_table_subjects(session)
-# create_table_results(session)
-# trigger_percent_results(session)
-# populate_database(session)
-# create_function_total_avg(session)
-# populate_results_table(session, 200)
-
+#-----------------------------------------------------------------------#
+# CREATE AND POPULATE DATABASE                                          #
+# session = connect_db("localhost", "root", "longpassword")             #
+# create_databases(session, DB_NAME)                                    #
+# create_table_users(session)                                           #
+# create_table_students(session)                                        #
+# create_table_subjects(session)                                        #
+# create_table_results(session)                                         #
+# trigger_percent_results(session)                                      #
+# populate_database(session)                                            #
+# create_function_total_avg(session)                                    #
+# populate_results_table(session, 200)                                  #
+#-----------------------------------------------------------------------#
 
 # RUN TERMINAL PROGRAM
 main()

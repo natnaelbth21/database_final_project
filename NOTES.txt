@@ -1,0 +1,27 @@
+* IMPROVEMENTS:
+
+** use place holders like %s intead of string format for security (sql injection)
+
+** use CREATE TABLE IF NOT EXISTS instead of just CREATE TABLE
+
+** close cursors // cursor.close()
+
+*---------------------------------------------------------------------*
+
+* ERRORS:
+
+** i used SELECT total_points INTO total_points FROM subjects WHERE subject_id = NEW.subject_id;
+** to save total_points into variable total_points and get None all the time.
+** it worked when i changed variable total_points into total.
+** using different variable name fixed it.
+** took me long time figure it out with try and error and prints.
+
+** in total_ave() function when i used cursor.fetchone() i had error when
+** calling the function twice imedietely.  the error was:
+** mysql.connector.errors.InternalError: Unread result found
+** i googled and found that the error occures when there is unread data from
+** previous query. so i used fetchall() to read everything and it fixed the error.
+
+**
+
+*---------------------------------------------------------------------*
